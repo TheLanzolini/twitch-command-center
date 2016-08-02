@@ -1,0 +1,26 @@
+{
+  "name": "twitch-command-center",
+  "version": "1.0.0",
+  "description": "A Desktop application to glance at many streams at once",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheLanzolini/twitch-command-center.git"
+  },
+  "keywords": [
+    "twitch",
+    "command",
+    "center",
+    "twitchtv",
+    "tv"
+  ],
+  "author": "TheLanzolini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheLanzolini/twitch-command-center/issues"
+  },
+  "homepage": "https://github.com/TheLanzolini/twitch-command-center#readme"
+}
