@@ -4,7 +4,8 @@
   "description": "A Desktop application to glance at many streams at once",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/.bin/electron main.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/TheLanzolini/twitch-command-center/issues"
   },
-  "homepage": "https://github.com/TheLanzolini/twitch-command-center#readme"
+  "homepage": "https://github.com/TheLanzolini/twitch-command-center#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^1.3.1"
+  }
 }
