@@ -52,3 +52,17 @@ button:active{
 .logout{
   font-size: 22px;
 }
+.title{
+  color: black;
+  margin-left: 15px;
+  text-align: left;
+}
+.player{
+  margin: 15px;
+  float: left;
+}
+.player-wrapper:before, .player-wrapper:after{
+  clear:both;
+  content: "";
+  display: table;
+}

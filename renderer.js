@@ -6,8 +6,9 @@ const renderers = require('./lib/renderers');
 const onRedirect = (e) => {
   if(e.newURL.includes('http://localhost/#access_token=')){
     token = e.newURL.replace('http://localhost/#access_token=', '').replace('&scope=chat_login+user_read','');
-    twitchApi.fetchTwitchUser(token).then(renderers.renderUserBar);
-    twitchApi.fetchStreamsFollowed(token).then(renderers.renderFollowedStreams);
+    twitchApi.fetchTwitchUser(token).then(renderers.renderUserBar).then(() => {
+      twitchApi.fetchStreamsFollowed(token).then(renderers.renderFollowedStreams);
+    });
     webview.classList.add('hidden');
   }
 };
