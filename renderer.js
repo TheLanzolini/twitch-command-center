@@ -1,3 +1,4 @@
+const {ipcRenderer} = require('electron');
 const webview = document.getElementById('webview');
 const indicator = document.getElementById('indicator');
 const twitchApi = require('./lib/twitchApi');
@@ -28,4 +29,6 @@ webview.addEventListener('did-start-loading', loadstart);
 webview.addEventListener('did-stop-loading', loadstop);
 webview.addEventListener('did-get-redirect-request', onRedirect);
 
-console.log(Twitch);
+ipcRenderer.on('logout-success', function(){
+  window.location.reload();
+});

@@ -1,4 +1,4 @@
-const electron = require('electron')
+const {electron, ipcMain} = require('electron')
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -68,6 +68,12 @@ function logout(){
     }
   });
 }
+
+ipcMain.on('logout', (event, arg) => {
+  if( logout() == null){
+    event.sender.send('logout-success');
+  }
+});
 
 
 // In this file you can include the rest of your app's specific main process
