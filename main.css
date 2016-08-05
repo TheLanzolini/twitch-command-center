@@ -11,16 +11,16 @@ html, body, #container, webview{
 }
 html{
   font-family: Arial, 'sans-serif';
-  color: white;
+  color: black;
 }
 #indicator{
   position: absolute;
   top: 0;
-  color: black;
 }
 .user-bar{
   background-color: #815fc0;
   padding: 10px;
+  color: white;
 }
 .user-avatar{
   height: 50px;
@@ -53,7 +53,6 @@ button:active{
   margin-left: 10px;
 }
 .title{
-  color: black;
   margin-left: 15px;
   text-align: left;
 }
