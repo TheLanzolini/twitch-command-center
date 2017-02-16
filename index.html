@@ -11,7 +11,15 @@
     <div id="container">
       <webview id="webview" src="https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=ssjvsik4e2jvz2qvhvyu2tcp4suc0v&redirect_uri=http%3A%2F%2Flocalhost&scope=chat_login+user_read"></webview>
     </div>
-    
+    <script>
+      // BECAUSE TWITCH WONT STOP WARNING ME OF NOTHING!!
+      setTimeout(function(){
+        console.log('stopping the madness');
+        for(i = 0;i<window.frames.length;i++){
+          window.frames[i].console.warn = function(){};
+        }
+      }, 5000);
+    </script>
   </body>
 
   <script>
