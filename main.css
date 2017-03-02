@@ -30,6 +30,20 @@ html{
   font-weight: 300;
   overflow: hidden;
 }
+.user-bar .nav{
+  float: left;
+  line-height: 37px;
+}
+.user-bar .nav span{
+  margin: 0 10px;
+  padding: 5px;
+}
+.user-bar .nav span:hover{
+  cursor: pointer;
+}
+.user-bar .nav span.active, .user-bar .nav span:hover{
+  background-color: #663399;
+}
 .user-avatar{
   height: 40px;
   width: 40px;
@@ -80,6 +94,7 @@ button:active{
 }
 .player{
   float: left;
+  height: 345px;
 }
 .player iframe{
   height: 345px;
