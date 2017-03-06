@@ -151,20 +151,20 @@ button:active{
   text-align: left;
   line-height: 200%;
 }
-[data-num]{
-  float: left;
-  padding: 5px;
-}
-[data-num]:hover{
-  cursor: pointer;
-}
-[data-num].active{
-  background-color: #663399;
-  color: white;
-}
 .page-container{
   overflow: hidden;
   position: absolute;
   top: 85px;
   left: 280px;
+}
+.page-container div{
+  float: left;
+  padding: 5px;
+  margin: 0 5px;
+  font-family: 'Fjalla One', sans-serif;
+}
+.page-container div:hover{
+  cursor: pointer;
+  background-color: #663399;
+  color: white;
 }
