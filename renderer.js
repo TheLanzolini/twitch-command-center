@@ -20,6 +20,7 @@ const onRedirect = (e) => {
       window.currentPage = 0;
 
       function enableNav(){
+        console.log('enabling nav');
         navEnabled = true;
         return Promise.resolve();
       }
@@ -29,6 +30,7 @@ const onRedirect = (e) => {
       }
       function switchTab(tab){
         currentTab = tab;
+        window.currentPage = 0;
         navBar.querySelectorAll('span').forEach(span => span.classList.remove('active'));
         navBar.querySelector(`.${tab}`).classList.add('active');
       }
@@ -36,23 +38,37 @@ const onRedirect = (e) => {
       document.addEventListener('pageNext', e => {
         disableNav().then(renderers.clearContainer).then(() => {
           currentPage++;
-          twitchApi[currentTab == 'following' ? 'fetchStreamsFollowed' : 'fetchFeaturedStreams'](token, window.currentPage).then(renderers.renderPageNav).then(renderers.renderStreams).then(enableNav);
+          twitchApi[currentTab == 'following' ? 'fetchStreamsFollowed' : 'fetchFeaturedStreams'](token, window.currentPage)
+            .then(renderers.renderLoadingScreen)
+            .then(renderers.renderPageNav)
+            .then(renderers.renderStreams)
+            .then(enableNav)
+            .then(renderers.removeLoadingScreen)
+          ;
         });
       });
       document.addEventListener('pagePrev', e => {
         disableNav().then(renderers.clearContainer).then(() => {
           currentPage--;
-          twitchApi[currentTab == 'following' ? 'fetchStreamsFollowed' : 'fetchFeaturedStreams'](token, window.currentPage).then(renderers.renderPageNav).then(renderers.renderStreams).then(enableNav);
+          twitchApi[currentTab == 'following' ? 'fetchStreamsFollowed' : 'fetchFeaturedStreams'](token, window.currentPage)
+            .then(renderers.renderLoadingScreen)
+            .then(renderers.renderPageNav)
+            .then(renderers.renderStreams)
+            .then(enableNav)
+            .then(renderers.removeLoadingScreen)
+          ;
         });
       });
 
       // initial grab followed streams
       disableNav().then(() => {
         twitchApi.fetchStreamsFollowed(token)
+          .then(renderers.renderLoadingScreen)
           .then(renderers.renderPageNav)
           .then(renderers.renderStreams)
           .then(enableNav)
-          ;
+          .then(renderers.removeLoadingScreen)
+        ;
       });
 
       switchTab('following');
@@ -61,7 +77,13 @@ const onRedirect = (e) => {
         if(!navEnabled || currentTab == 'featured') return;
         switchTab('featured');
         disableNav().then(renderers.clearContainer).then(() => {
-          twitchApi.fetchFeaturedStreams(token).then(renderers.renderPageNav).then(renderers.renderStreams).then(enableNav);
+          twitchApi.fetchFeaturedStreams(token)
+            .then(renderers.renderLoadingScreen)
+            .then(renderers.renderPageNav)
+            .then(renderers.renderStreams)
+            .then(enableNav)
+            .then(renderers.removeLoadingScreen)
+          ;
         });
       });
 
@@ -69,7 +91,13 @@ const onRedirect = (e) => {
         if(!navEnabled || currentTab == 'following') return;
         switchTab('following');
         disableNav().then(renderers.clearContainer).then(() => {
-          twitchApi.fetchStreamsFollowed(token).then(renderers.renderPageNav).then(renderers.renderStreams).then(enableNav);
+          twitchApi.fetchStreamsFollowed(token)
+            .then(renderers.renderLoadingScreen)
+            .then(renderers.renderPageNav)
+            .then(renderers.renderStreams)
+            .then(enableNav)
+            .then(renderers.removeLoadingScreen)
+          ;
         });
       });
 
