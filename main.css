@@ -16,7 +16,7 @@ html, body, #container, webview{
   overflow: hidden;
 }
 html{
-  font-family: "Helvetica Neue", 'sans-serif';
+  font-family: 'Fjalla One', sans-serif;
   color: black;
 }
 #indicator{
@@ -161,7 +161,6 @@ button:active{
   float: left;
   padding: 5px;
   margin: 0 5px;
-  font-family: 'Fjalla One', sans-serif;
 }
 .page-container .next:hover, .page-container .prev:hover{
   cursor: pointer;

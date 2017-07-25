@@ -10,7 +10,7 @@ const onRedirect = (e) => {
 
     twitchApi.fetchTwitchUser(token).then(renderers.renderUserBar).then(() => {
 
-      window.limit = 3;
+      window.limit = 9;
       let navEnabled = false;
       const navBar = document.querySelector('.user-bar .nav');
       const featured = navBar.querySelector('.featured');
