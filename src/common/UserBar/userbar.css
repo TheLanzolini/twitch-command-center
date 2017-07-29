@@ -1,0 +1,20 @@
+.user-bar {
+  background-color: #6441A4;
+  display: flex;
+  justify-content: flex-end;
+  padding: 6px 0;
+}
+
+.user-avatar {
+  height: 50px;
+  border-radius: 25px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 225px;
+  font-size: 18px;
+  color: white;
+}

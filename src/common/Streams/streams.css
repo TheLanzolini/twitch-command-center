@@ -1,0 +1,14 @@
+.streams {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  padding-top: 12px;
+}
+
+.player-element {
+  padding: 0 2px;
+}
+
+.player-element iframe .player {
+  cursor: pointer;
+}

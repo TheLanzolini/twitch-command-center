@@ -6,3 +6,31 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
 }
+
+.loading-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -49px;
+  margin-left: -146px;
+  font-size: 78px;
+}
+
+.loading-char {
+  animation-name: wave;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  display: inline-block;
+  transform: translateY(-10%);
+}
+
+@keyframes wave {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(10%);
+  }
+}

@@ -1,3 +1,7 @@
+html {
+  font-family: 'Fjalla One', sans-serif;
+}
+
 body {
   margin: 0;
 }
@@ -9,4 +13,8 @@ html, body, .main {
 
 * {
   box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
 }

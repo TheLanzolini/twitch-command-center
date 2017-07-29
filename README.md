@@ -2,7 +2,11 @@
 
 ### Getting Started
 Install Dependencies
-`npm install`
+`npm install -g yarn`
+
+`yarn install`
+
+`npm start`
 
 Run
 `npm start`

@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "electron": "./node_modules/.bin/electron main.js",
     "build": "./node_modules/.bin/webpack --bail --progress --profile",
+    "dev": "./node_modules/.bin/webpack-dev-server --history-api-fallback --inline --progress",
     "start": "npm run build && npm run electron"
   },
   "repository": {
@@ -44,6 +45,7 @@
     "preprocess-loader": "^0.2.0",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
   }
 }
