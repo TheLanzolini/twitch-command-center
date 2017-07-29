@@ -4,6 +4,8 @@ const indicator = document.getElementById('indicator');
 const twitchApi = require('./lib/twitchApi');
 const renderers = require('./lib/renderers');
 
+document.getElementById('webview').src = `https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=${process.env.CLIENT_ID}&redirect_uri=http%3A%2F%2Flocalhost&scope=chat_login+user_read`
+
 const onRedirect = (e) => {
   if(e.newURL.includes('http://localhost/#access_token=')){
     token = e.newURL.replace('http://localhost/#access_token=', '').replace('&scope=chat_login+user_read','');
