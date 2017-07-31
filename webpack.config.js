@@ -198,11 +198,11 @@ module.exports = function makeWebpackConfig () {
    * Reference: http://webpack.github.io/docs/configuration.html#devserver
    * Reference: http://webpack.github.io/docs/webpack-dev-server.html
    */
-  config.devServer = {
-    contentBase: './src',
-    stats: 'minimal',
-    port: 8000
-  };
+  // config.devServer = {
+  //   contentBase: './src',
+  //   stats: 'minimal',
+  //   port: 8000
+  // };
 
   return config;
 }();

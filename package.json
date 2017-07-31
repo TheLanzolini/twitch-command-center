@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "electron": "./node_modules/.bin/electron main.js",
     "build": "./node_modules/.bin/webpack --bail --progress --profile",
-    "dev": "./node_modules/.bin/webpack-dev-server --history-api-fallback --inline --progress",
+    "dev": "./node_modules/.bin/webpack --bail --progress --profile --watch",
     "start": "npm run build && npm run electron"
   },
   "repository": {
@@ -28,13 +28,13 @@
   },
   "homepage": "https://github.com/TheLanzolini/twitch-command-center#readme",
   "devDependencies": {
-    "electron-prebuilt": "^1.3.1",
     "autoprefixer": "^6.4.1",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.14.0",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.25.0",
+    "electron-prebuilt": "^1.3.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
@@ -45,7 +45,9 @@
     "preprocess-loader": "^0.2.0",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.15.1"
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "electron-settings": "^3.1.1"
   }
 }

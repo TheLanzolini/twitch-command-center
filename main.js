@@ -1,4 +1,5 @@
 const electron = require('electron')
+const settings = require('electron-settings')
 const {ipcMain} = electron;
 // Module to control application life.
 const app = electron.app
@@ -79,3 +80,29 @@ ipcMain.on('logout', (event, arg) => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+const initialState = {
+  state: 'Login',
+  token: null,
+  limit: 6,
+  width: 600,
+  height: 400
+}
+
+if (!settings.get('state')) {
+  settings.set('state', initialState)
+}
+
+ipcMain.on('stateRequest', (event, arg) => {
+  const state = settings.get('state')
+  event.sender.send('state', state)
+})
+
+ipcMain.on('updateState', (event, arg) => {
+  settings.set('state', arg)
+  // const state = settings.get('state')
+  // event.sender.send('state', state)
+})
+
+// settings.set('state', initialState)
+// console.log(settings.get('state'))

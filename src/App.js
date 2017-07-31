@@ -8,8 +8,6 @@ import $loadingIndicator from './common/Loading'
 
 import './App.css'
 
-console.log('asdasdasd')
-
 document.body.appendChild(createEl('main'))
 document.body.appendChild($loadingIndicator)
 

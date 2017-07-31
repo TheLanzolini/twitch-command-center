@@ -14,7 +14,7 @@ export default () => {
       const token = e.newURL.replace('http://localhost/#access_token=', '').replace('&scope=chat_login+user_read','')
       updateToken(token)
       hideLoading()
-      go('Followed')
+      go('Settings')
     }
   }
 

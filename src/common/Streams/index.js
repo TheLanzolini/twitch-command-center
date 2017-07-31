@@ -1,30 +1,31 @@
 import createEl from '../../utils/createEl'
 import * as api from '../../api'
 import { getCurrentState } from '../../state'
-import { playerOptions } from '../../constants'
 import { hideLoading, showLoading } from '../../utils/loading'
 
 import './streams.css'
 
 
 export default (mode = 'followed') => {
-  const { token } = getCurrentState()
+  const { token, width, height } = getCurrentState()
   const $streams = createEl('streams')
 
   showLoading()
 
   api[mode == 'followed' ? 'fetchStreamsFollowed' : 'fetchFeaturedStreams'](token).then(data => {
     console.log(data)
-    const { streams } = data
+    const { streams, featured } = data
+    const iterableStreams = (streams || featured)
     let sequence = Promise.resolve()
-    streams.forEach(function(stream) {
+    iterableStreams.forEach(function(stream) {
       sequence = sequence.then(function() {
         const p = new Promise((resolve, reject) => {
+          const streamName = stream.channel ? stream.channel.name : stream.stream.channel.name
           const playerEl = createEl('player-element')
-          playerEl.id = stream.channel.name
+          playerEl.id = streamName
           $streams.appendChild(playerEl)
-          const newOptions = Object.assign({}, playerOptions, {channel: stream.channel.name})
-          const player = new Twitch.Player(stream.channel.name, newOptions)
+          const newOptions = Object.assign({}, { width, height }, {channel: streamName})
+          const player = new Twitch.Player(streamName, newOptions)
           player.addEventListener('ready', e => {
             const iframePlayer = player._bridge._iframe.contentWindow.document.querySelector('.player');
             iframePlayer.style.cursor = 'pointer';

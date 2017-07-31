@@ -6,5 +6,10 @@
     <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
   </head>
-  <body></body>
+  <body>
+    <script type="text/javascript">
+      const {ipcRenderer} = require('electron');
+      window.ipcRenderer = ipcRenderer;
+    </script>
+  </body>
 </html>
