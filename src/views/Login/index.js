@@ -18,7 +18,11 @@ export default () => {
     }
   }
 
-  $webview.src = 'https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=ssjvsik4e2jvz2qvhvyu2tcp4suc0v&redirect_uri=http%3A%2F%2Flocalhost&scope=chat_login+user_read'
+  if (window.process.env.CLIENT_ID === undefined) {
+    throw new Error('No process.env.CLIENT_ID found, set CLIENT_ID in your process.')
+  }
+
+  $webview.src = `https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=${window.process.env.CLIENT_ID}&redirect_uri=http%3A%2F%2Flocalhost&scope=chat_login+user_read`
   $main.appendChild($webview)
 
   $webview.addEventListener('did-start-loading', showLoading)
