@@ -1,6 +1,6 @@
 const electron = require('electron')
 const settings = require('electron-settings')
-const {ipcMain} = electron;
+const { ipcMain } = electron
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -12,7 +12,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1830, height: 900})
+  mainWindow = new BrowserWindow({ width: 1830, height: 900 })
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/dist/index.html`)
@@ -52,30 +52,30 @@ app.on('activate', function () {
   }
 })
 
-function logout(){
-  mainWindow.webContents.session.cookies.get({}, function(error, cookies){
-    if(error){
-      return console.log(error);
+function logout() {
+  mainWindow.webContents.session.cookies.get({}, function(error, cookies) {
+    if (error) {
+      return console.log(error)
     }
-    for(var i = cookies.length; i >= 0; i--){
-      if(cookies[i]){
-        var url = "http" + (cookies[i].secure ? "s" : "") + "://" +cookies[i].domain + cookies[i].path;
-        var name = cookies[i].name;
-        mainWindow.webContents.session.cookies.remove(url, name, function(error){
-          if(error){
-            return console.log(error);
+    for (var i = cookies.length; i >= 0; i--) {
+      if (cookies[i]) {
+        var url = "http" + (cookies[i].secure ? "s" : "") + "://" +cookies[i].domain + cookies[i].path
+        var name = cookies[i].name
+        mainWindow.webContents.session.cookies.remove(url, name, function(error) {
+          if (error) {
+            return console.log(error)
           }
-        });
+        })
       }
     }
-  });
+  })
 }
 
 ipcMain.on('logout', (event, arg) => {
-  if( logout() == null){
-    event.sender.send('logout-success');
+  if ( logout() == null) {
+    event.sender.send('logout-success')
   }
-});
+})
 
 
 // In this file you can include the rest of your app's specific main process
@@ -86,15 +86,17 @@ const initialState = {
   token: null,
   limit: 6,
   width: 600,
-  height: 400
+  height: 400,
 }
 
-if (!settings.get('state')) {
-  settings.set('state', initialState)
-}
+const state = Object.assign({}, initialState)
+
+// if (!settings.get('state')) {
+//   settings.set('state', initialState)
+// }
 
 ipcMain.on('stateRequest', (event, arg) => {
-  const state = settings.get('state')
+  // const state = settings.get('state')
   event.sender.send('state', state)
 })
 

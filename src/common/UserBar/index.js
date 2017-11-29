@@ -29,7 +29,7 @@ export default () => {
   const $logout = createEl('logout', 'div', 'Logout')
 
   $logout.addEventListener('click', e => {
-    console.log('clicked logout')
+    // console.log('clicked logout')
   })
 
   $userProfile.append($userAvatar, $userName, $logout)

@@ -9,8 +9,8 @@ export default () => {
   const $main = getMain()
   const $webview = createEl('webview', 'webview')
   const onRedirect = (e) => {
-    console.log(e)
-    if(e.newURL.includes('http://localhost/#access_token=')){
+    // console.log(e)
+    if (e.newURL.includes('http://localhost/#access_token=')) {
       const token = e.newURL.replace('http://localhost/#access_token=', '').replace('&scope=chat_login+user_read','')
       updateToken(token)
       hideLoading()
@@ -18,7 +18,7 @@ export default () => {
     }
   }
 
-  $webview.src = `https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=ssjvsik4e2jvz2qvhvyu2tcp4suc0v&redirect_uri=http%3A%2F%2Flocalhost&scope=chat_login+user_read`
+  $webview.src = 'https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=ssjvsik4e2jvz2qvhvyu2tcp4suc0v&redirect_uri=http%3A%2F%2Flocalhost&scope=chat_login+user_read'
   $main.appendChild($webview)
 
   $webview.addEventListener('did-start-loading', showLoading)

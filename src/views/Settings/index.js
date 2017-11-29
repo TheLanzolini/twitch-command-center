@@ -31,10 +31,10 @@ export default () => {
   $limitInput.setAttribute('max', '12')
   $limitInput.value = limit
   $limitInput.addEventListener('change', e => {
-    if(e.target.value > limitMax){
+    if (e.target.value > limitMax) {
       $limitInput.value = limitMax
     }
-    if(e.target.value < limitMin){
+    if (e.target.value < limitMin) {
       $limitInput.value = limitMin
     }
     updateLimit(e.target.value > limitMax ? limitMax : e.target.value < limitMin ? limitMin : e.target.value)
@@ -52,10 +52,10 @@ export default () => {
   $widthInput.setAttribute('max', '1000')
   $widthInput.value = width
   $widthInput.addEventListener('change', e => {
-    if(e.target.value > widthMax){
+    if (e.target.value > widthMax) {
       $widthInput.value = widthMax
     }
-    if(e.target.value < widthMin){
+    if (e.target.value < widthMin) {
       $widthInput.value = widthMin
     }
     updateWidth(e.target.value > widthMax ? widthMax : e.target.value < widthMin ? widthMin : e.target.value)
@@ -73,10 +73,10 @@ export default () => {
   $heightInput.setAttribute('max', '1000')
   $heightInput.value = height
   $heightInput.addEventListener('change', e => {
-    if(e.target.value > heightMax){
+    if (e.target.value > heightMax) {
       $heightInput.value = heightMax
     }
-    if(e.target.value < heightMin){
+    if (e.target.value < heightMin) {
       $heightInput.value = heightMin
     }
     updateHeight(e.target.value > heightMax ? heightMax : e.target.value < heightMin ? heightMin : e.target.value)

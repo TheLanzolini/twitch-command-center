@@ -3,7 +3,7 @@ const webview = document.getElementById('webview');
 const indicator = document.getElementById('indicator');
 const twitchApi = require('./lib/twitchApi');
 const renderers = require('./lib/renderers');
-
+throw new Error()
 document.getElementById('webview').src = `https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=${process.env.CLIENT_ID}&redirect_uri=http%3A%2F%2Flocalhost&scope=chat_login+user_read`
 
 const onRedirect = (e) => {

@@ -11,4 +11,4 @@ import './App.css'
 document.body.appendChild(createEl('main'))
 document.body.appendChild($loadingIndicator)
 
-init();
+init()

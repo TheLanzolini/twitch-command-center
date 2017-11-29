@@ -13,7 +13,6 @@ export default (mode = 'followed') => {
   showLoading()
 
   api[mode == 'followed' ? 'fetchStreamsFollowed' : 'fetchFeaturedStreams'](token).then(data => {
-    console.log(data)
     const { streams, featured } = data
     const iterableStreams = (streams || featured)
     let sequence = Promise.resolve()
@@ -24,11 +23,11 @@ export default (mode = 'followed') => {
           const playerEl = createEl('player-element')
           playerEl.id = streamName
           $streams.appendChild(playerEl)
-          const newOptions = Object.assign({}, { width, height }, {channel: streamName})
+          const newOptions = Object.assign({}, { width, height }, { channel: streamName })
           const player = new Twitch.Player(streamName, newOptions)
           player.addEventListener('ready', e => {
-            const iframePlayer = player._bridge._iframe.contentWindow.document.querySelector('.player');
-            iframePlayer.style.cursor = 'pointer';
+            const iframePlayer = player._bridge._iframe.contentWindow.document.querySelector('.player')
+            iframePlayer.style.cursor = 'pointer'
             setTimeout(() => {
               player.setMuted(false)
             }, 1250)
@@ -39,7 +38,7 @@ export default (mode = 'followed') => {
               player.setVolume(0.0)
             })
             iframePlayer.addEventListener('click', e => {
-              console.log('click')
+              // console.log('click')
             })
             return resolve()
           })
@@ -47,7 +46,7 @@ export default (mode = 'followed') => {
         return p
       })
     })
-    sequence.then(function(){
+    sequence.then(function() {
       hideLoading()
     })
   })
