@@ -6,7 +6,6 @@ Install Dependencies
 
 `yarn install`
 
-`npm start`
-
 Run
-`npm start`
+`yarn start` will start the electron process
+`yarn dev ` will run a dev server for client js reloading

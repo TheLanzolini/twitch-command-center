@@ -6,6 +6,10 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
+if (process.env.CLIENT_ID === undefined) {
+  throw new Error('CLIENT_ID not found in process.env.')
+}
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
